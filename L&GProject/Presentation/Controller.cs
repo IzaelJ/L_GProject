@@ -18,6 +18,7 @@ namespace L_GProject.Presentation
         {
             _endpointService = endpointService;
         }
+
         public void InsertAction()
         {
             EndpointDTO endpointDTO = new EndpointDTO();
@@ -55,7 +56,7 @@ namespace L_GProject.Presentation
 
                 if (int.TryParse(meterNumberString, out int meterNumber))
                 {
-                    endpointDTO.MeterNumber = meterNumber; 
+                    endpointDTO.MeterNumber = meterNumber;
                     break;
                 }
                 else
@@ -102,10 +103,12 @@ namespace L_GProject.Presentation
                 Console.WriteLine("Endpoint registered with success.");
 
             }
-            catch(SerialNumberAlreadyExistsException e) {
+            catch (SerialNumberAlreadyExistsException e)
+            {
                 Console.WriteLine(e.Message);
             }
         }
+
         public void EditSwitchState()
         {
             string serialNumber;
@@ -173,7 +176,7 @@ namespace L_GProject.Presentation
                 }
 
             } while (string.IsNullOrEmpty(serialNumber));
-            
+
             bool validAnswer = false;
             do
             {
@@ -192,7 +195,8 @@ namespace L_GProject.Presentation
                     validAnswer = true;
                     return;
                 }
-                else {
+                else
+                {
                     Console.WriteLine("\nInvalid choice. Please enter a valid switch state.");
                 }
             } while (!validAnswer);
@@ -214,9 +218,9 @@ namespace L_GProject.Presentation
                 endpointDTO.SerialNumber = Console.ReadLine();
                 try
                 {
-                   Console.WriteLine("\n===Endpoint:==="); 
-                   endpointDTO = _endpointService.FindEndPointBySerialNumber(endpointDTO.SerialNumber);
-                   ConsoleUI.ShowEndpoint(endpointDTO);
+                    Console.WriteLine("\n===Endpoint:===");
+                    endpointDTO = _endpointService.FindEndPointBySerialNumber(endpointDTO.SerialNumber);
+                    ConsoleUI.ShowEndpoint(endpointDTO);
                 }
 
                 catch (SerialNumberNotFoundException ex)
@@ -226,6 +230,31 @@ namespace L_GProject.Presentation
                 }
 
             } while (string.IsNullOrEmpty(endpointDTO.SerialNumber));
+        }
+        public bool ExitConfirmation()
+        {
+            bool validAnswer = false;
+            do
+            {
+                ConsoleUI.ConfirmWindow();
+                string input = Console.ReadLine();
+
+                if (input.Equals("1"))
+                {
+                    validAnswer = true;
+                    return true;
+                }
+                else if (input.Equals("2"))
+                {
+                    return false;
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid choice. Please enter a valid switch state.");
+                }
+            } while (!validAnswer);
+
+            return false;
         }
 
     }

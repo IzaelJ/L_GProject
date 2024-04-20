@@ -53,8 +53,12 @@ namespace LGProject.Presentation
                         controller.RetrieveEndpointBySerialNumber();
                         break;
                     case "6":
-                        Console.WriteLine("\nExiting the program...");
-                        return;
+                        if (controller.ExitConfirmation())
+                        {
+                            Console.WriteLine("\nExiting the program...");
+                            return;
+                        }
+                        break;
                     default:
                         Console.WriteLine("\nInvalid choice. Please enter a number between 1 and 6.");
                         break;

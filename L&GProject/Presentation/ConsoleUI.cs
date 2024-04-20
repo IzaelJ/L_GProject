@@ -38,6 +38,13 @@ namespace L_GProject.Presentation
             Console.WriteLine("2) No");
         }
 
+        public static void ConfirmWindow()
+        {
+            Console.WriteLine($"Are you sure?");
+            Console.WriteLine("1) Yes");
+            Console.WriteLine("2) No");
+        }
+
         public static void ShowEndpoint(EndpointDTO endpoint)
         {
              Console.WriteLine($"Serial Number: {endpoint.SerialNumber}");
