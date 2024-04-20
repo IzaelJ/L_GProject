@@ -11,7 +11,7 @@ namespace L_GProject.Service.Impl
 
         public EndpointServiceImpl(IEndpointRepository endpointRepository)
         {
-            _endpointRepository = endpointRepository ?? throw new ArgumentNullException(nameof(endpointRepository));
+            _endpointRepository = endpointRepository;
         }
 
         public void DeleteEndpoint(string serialNumber)

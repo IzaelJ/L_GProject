@@ -3,6 +3,5 @@
     public class SerialNumberNotFoundException : Exception
     {
         public SerialNumberNotFoundException(string message) : base(message) { }
-        public SerialNumberNotFoundException(string message, Exception innerException) : base(message, innerException) { }
     }
 }
