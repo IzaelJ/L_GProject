@@ -1,9 +1,6 @@
 ﻿
 using L_GProject.Data.Repository;
 using L_GProject.Models;
-using L_GProject.Service.Impl;
-using L_GProject.Service;
-using Moq;
 
 namespace LGProject.Tests.RepositoryTests
 {
